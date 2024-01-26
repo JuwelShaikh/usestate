@@ -31,12 +31,21 @@ const Product = (props) => {
   }
 
   const [price, setPrice] = useState(1)
+  const IncreasePrice = () => {
+    const newPrice = price * 2;
+    setPrice(newPrice);
+
+  }
+  const DecrPrice = () => {
+    const newPrice = price % 20;
+    setPrice(newPrice);
+  }
   return (
     <div style={styleProps}>
       <h2>Name: {props.name} </h2>
       <h4>Price: {price} </h4>
-      <button style={btnStyle}>Increase price</button>
-      <button style={btnStyle}>Decrease price</button>
+      <button style={btnStyle} onClick={IncreasePrice}>Increase price</button>
+      <button style={btnStyle} onClick={DecrPrice}>20% discount</button>
     </div>
   )
 }
